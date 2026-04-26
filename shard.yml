@@ -1,0 +1,15 @@
+name: patrones_de_diseño
+version: 0.1.0
+
+authors:
+  - Laurencio Lopez Martinez
+  - Luis Dario Padilla Lopez
+  - Leonardo Hernández Hernández
+
+targets:
+  patrones_de_diseño:
+    main: src/patrones_de_diseño.cr
+
+crystal: '>= 1.20.0'
+
+license: MIT

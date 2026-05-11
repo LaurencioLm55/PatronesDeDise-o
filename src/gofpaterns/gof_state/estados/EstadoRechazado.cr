@@ -1,30 +1,30 @@
 module GofStateSpp
-
-  class EstadoAprobado
+  class EstadoRechazado
     include EstadoDocumento
 
     def nombre : String
-      "Aprobado"
+      "Rechazado"
     end
 
     def editar(documento : DocumentoExpediente) : String
-      "No se puede editar un documento aprobado."
+      documento.cambiar_estado(EstadoBorrador.new)
+      "El documento rechazado vuelve a borrador para corregirse."
     end
 
     def entregar(documento : DocumentoExpediente) : String
-      "El documento aprobado ya no requiere entrega."
+      "Primero debe corregirse el documento rechazado."
     end
 
     def iniciar_revision(documento : DocumentoExpediente) : String
-      "El documento aprobado ya no requiere revisión."
+      "No se puede revisar un documento rechazado sin corregirlo."
     end
 
     def aprobar(documento : DocumentoExpediente) : String
-      "El documento ya se encuentra aprobado."
+      "No se puede aprobar un documento rechazado sin nueva revision."
     end
 
     def rechazar(documento : DocumentoExpediente) : String
-      "No se puede rechazar un documento ya aprobado."
+      "El documento ya se encuentra rechazado."
     end
   end
 end

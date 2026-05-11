@@ -1,5 +1,4 @@
 module GofStateSpp
-
   class EstadoEntregado
     include EstadoDocumento
 

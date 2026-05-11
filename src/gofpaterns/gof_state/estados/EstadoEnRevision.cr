@@ -1,30 +1,31 @@
 module GofStateSpp
-  class EstadoEntregado
+  class EstadoEnRevision
     include EstadoDocumento
 
     def nombre : String
-      "Entregado"
+      "En revision"
     end
 
     def editar(documento : DocumentoExpediente) : String
-      "No se puede editar un documento ya entregado."
+      "No se puede editar un documento en revision."
     end
 
     def entregar(documento : DocumentoExpediente) : String
-      "El documento ya fue entregado anteriormente."
+      "El documento ya fue entregado y esta en revision."
     end
 
     def iniciar_revision(documento : DocumentoExpediente) : String
-      documento.cambiar_estado(EstadoEnRevision.new)
-      "El documento pasó a revisión."
+      "El documento ya se encuentra en revision."
     end
 
     def aprobar(documento : DocumentoExpediente) : String
-      "Primero debe iniciarse la revisión del documento."
+      documento.cambiar_estado(EstadoAprobado.new)
+      "El documento fue aprobado."
     end
 
     def rechazar(documento : DocumentoExpediente) : String
-      "Primero debe iniciarse la revisión del documento."
+      documento.cambiar_estado(EstadoRechazado.new)
+      "El documento fue rechazado."
     end
   end
 end

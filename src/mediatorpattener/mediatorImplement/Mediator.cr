@@ -11,7 +11,7 @@ module Mediator
         def initialize (@name : String, @chat : Chat)
         end 
 
-        abstract def recive (message : String, sender : String)  
+        abstract def reciveMessage (message : String, sender : String)  
         abstract def sendMessage (message : String)
     
     end
@@ -29,7 +29,7 @@ module Mediator
         def sendMessageMediator (message : String, user : User)
                 @users.each do |u|
                 next if u == user
-                u.recive(message, user.name)
+                u.reciveMessage(message, user.name)
             end
         end
 
@@ -42,7 +42,7 @@ module Mediator
             @chat.sendMessageMediator(message, self)
         end
 
-        def recive(message : String, sender : String)
+        def reciveMessage(message : String, sender : String)
             puts "#{@name} recibe de #{sender}: #{message}"
         end
     end

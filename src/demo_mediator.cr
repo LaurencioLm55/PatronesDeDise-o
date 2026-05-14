@@ -14,7 +14,7 @@ module DemoMediator
             chatRoom.addUser(luis)
             chatRoom.addUser(jose)
             chatRoom.addUser(maria)
-            chatRoom.addUser(jose)
+            chatRoom.addUser(ana)
 
             luis.sendMessage("Hola a todos")
             jose.sendMessage("Hola")
